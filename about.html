@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Blast Brothers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body class="loading">
+<div id="loader">
+  <div class="loader-content">
+     <div class="spinner"></div>
+     <p>Please Wait.....</p>
+  </div>
+</div>
+<header>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <nav id="mobileMenu" class="nav-links">
+   <a href="index.html">Home</a>
+   <a href="service.html">Modes</a>
+   <a href="gallery.html">Gallery</a>
+   <a href="about.html" class="active">About</a>
+   <a href="contact.html">Contact</a>
+  </nav>
+
+
+<div class="logo">
+<a href="about.html">Blast Brothers</a>
+</div>
+
+
+
+</header>
+<main>
+  <section class="about-hero">
+    <h1>We Create Meaningful Experiences</h1>
+    <p>Driven By Passion. Build With Purpose. Designed For People.</p>
+  </section>
+
+  <!-- Our Journey -->
+<section class="container">  
+  <section class="section-journey">
+     <h1>Our Journey</h1>
+     <p>
+      What started as a simple surprise event organized by a group of close friends soon became something much bigger.
+      We initially planned a one-day surprise celebration for a friend — putting together ideas, coordinating people, and executing the event with passion. The response was overwhelming. </p>
+     <p>The joy on people’s faces and the positive feedback encouraged us to think beyond just a single event.
+        After witnessing the success, we decided to scale our vision.
+        Our journey expanded in Madurai – Thirunagar, where we began organizing events on a larger scale. With growing support and collaboration from local associations at Kalavasal, we strengthened our presence and officially established our office near Thirunagar.</p>
+     <p>Today, we are proud to organize 2 to 3 projects every week, delivering memorable experiences filled with creativity, emotion, and perfection.
+     </p>
+  </section>
+
+<!-- Our Mission -->
+  <section class="section mission">
+     <div class="ms-cards">
+        <h2>Our Mission</h2>
+        <p>
+           To design and execute meaningful celebrations with creativity,
+           precision, and passion turning every idea into a memorable reality.
+        </p>
+     </div>
+  </section>
+
+<!-- Our Vision -->
+  <section class="section vision">
+     <div class="ms-cards">
+       <h2>Our Vision</h2>
+       <p>
+         To become one of the most trusted and innovative event organizers
+         in Madurai, delivering unforgettable experiences.
+       </p>
+     </div>
+  </section>
+</section> 
+<!-- Achievements -->
+<section class="about-bottom">
+
+    <div class="achievements">
+        <h2>Our Achievements</h2>
+        <div class="achieve-box">
+            <div>
+                <h3>50+</h3>
+                <p>Events Organized</p>
+            </div>
+            <div>
+                <h3>40+</h3>
+                <p>Happy Clients</p>
+            </div>
+            <div>
+                <h3>10+</h3>
+                <p>Team Members</p><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-cta">
+        <h2>Let’s Create Something Amazing</h2>
+        <p>Contact us today and let’s plan your next big event.</p>
+        <a href="contact.html" class="cta-btn">Contact Us</a>
+        
+         
+    </div>
+
+</section>
+</main>
+<footer class="footer">
+  <p>© 2026 Blast Brothers. All Rights Reserved.</p>
+</footer>
+<script>
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("show");
+}
+let loaderTimeout;
+
+
+loaderTimeout = setTimeout(() => {
+  document.body.classList.add("loading");
+  const loader = document.getElementById("loader");
+  if(loader){
+    loader.style.display = "flex";
+  }
+}, 300); 
+
+window.addEventListener("load", function(){
+
+  clearTimeout(loaderTimeout); 
+
+  const loader = document.getElementById("loader");
+
+  if(document.body.classList.contains("loading")){
+    loader.classList.add("fade-out");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      document.body.classList.remove("loading");
+    }, 400);
+  }
+});
+</script>
+</body>
+</html>

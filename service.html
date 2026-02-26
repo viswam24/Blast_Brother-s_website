@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modes - Blast Brothers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body class="loading">
+
+<div id="loader">
+  <div class="loader-content">
+     <div class="spinner"></div>
+     <p>Please Wait.....</p>
+  </div>
+</div>
+<header>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <nav id="mobileMenu" class="nav-links">
+   <a href="index.html">Home</a>
+   <a href="service.html" class="active">Modes</a>
+   <a href="gallery.html">Gallery</a>
+   <a href="about.html">About</a>
+   <a href="contact.html">Contact</a>
+  </nav>
+
+
+<div class="logo">
+<a href="about.html">Blast Brothers</a>
+</div>
+
+
+
+</header>
+<main>
+    <section class="modes">
+
+<h2 class="head">Choose Your Surprise Mode</h2><br><br>
+
+<div class="mode-grid">
+
+<div class="box">
+<h3>😡 Anger Mode</h3>
+<p>Dramatic storytelling with happy twist.</p>
+<button onclick="openMode('anger')" class="btn">Know More</button>
+</div>
+
+<div class="box">
+<h3>🙂 Smile Mode</h3>
+<p>Sweet happy joyful celebration.</p><br>
+<button onclick="openMode('smile')" class="btn">Know More</button>
+</div>
+
+<div class="box">
+<h3>🥹 Crying Mode</h3>
+<p>Heart touching emotional reveal.</p>
+<button onclick="openMode('cry')" class="btn">Know More</button>
+</div>
+
+<div class="box">
+<h3>😲 Shock Mode</h3>
+<p>Unexpected surprise entry moment.</p>
+<button onclick="openMode('shock')" class="btn">Know More</button>
+</div>
+
+<div class="box">
+<h3>😱 Panic Mode</h3>
+<p>High suspense romantic reveal.</p><br>
+<button onclick="openMode('panic')" class="btn">Know More</button>
+</div>
+
+</div>
+</section>
+
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+<div class="popup-content">
+
+<span onclick="closePopup()" class="close">✖</span>
+
+<h2 id="title" class="title"></h2>
+<p id="desc" class="desc"></p>
+<ul class="includes">
+  <li>Professional Photography</li>
+  <li>Cinematic Videography</li>
+  <li>Full Video Editing</li>
+  <li>Decoration Setup</li>
+  <li>Surprise Planning</li>
+</ul>
+<h3 class="price" id="price"></h3>
+<a id="bookBtn" target="_blank" class="book">Contact Now</a>
+</div>
+</div>
+</main>
+
+<script>
+
+const data={
+
+anger:{
+title:"😡 Anger Mode",
+text:"Starts calm… slowly builds tension… confusion… dramatic emotional scene… then BOOM — powerful happy reveal. Perfect for prank style surprises, revenge fun setups and dramatic birthday entries",
+price:"Starting ₹7,999",
+wa:"https://wa.me/917418982412?text=I%20want%20Anger%20Mode"
+},
+
+smile:{
+title:"🙂 Smile Mode",
+text:"Pure happiness celebration with sweet words, joyful surprises, friendly storytelling and fun moments. Best for birthdays, friendship surprises, welcome events and happy memory creations.",
+price:"Starting ₹6,999",
+wa:"https://wa.me/917418982412?text=I%20want%20Smile%20Mode"
+},
+
+cry:{
+title:"🥹 Crying Mode",
+text:"Deep emotional storytelling designed to touch the heart. Includes meaningful script, memory references, surprise messages and powerful emotional reveal that brings happy tears.",
+price:"Starting ₹8,499",
+wa:"https://wa.me/917418982412?text=I%20want%20Crying%20Mode"
+},
+
+shock:{
+title:"😲 Shock Mode",
+text:"Unexpected sudden entry, surprise announcement and powerful reveal moment. Designed to create instant crowd reaction and unforgettable surprise impact.",
+price:"Starting ₹9,499",
+wa:"https://wa.me/917418982412?text=I%20want%20Shock%20Mode"
+},
+
+panic:{
+title:"😱 Panic Mode",
+text:"High suspense buildup with urgency creation and emotional tension. Audience thinks something serious… then final romantic or sweet truth reveal creates massive emotional relief.",
+price:"Starting ₹10,999",
+wa:"https://wa.me/917418982412?text=I%20want%20Panic%20Mode"
+}
+
+};
+
+function openMode(m){
+document.getElementById("title").innerText=data[m].title;
+document.getElementById("desc").innerText=data[m].text;
+document.getElementById("price").innerText=data[m].price;
+document.getElementById("bookBtn").href=data[m].wa;
+document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+const boxes = document.querySelectorAll('.mode-grid .box');
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{threshold:0.2});
+
+boxes.forEach((box,i)=>{
+  box.style.transitionDelay = (i * 0.15) + "s";
+  observer.observe(box);
+});
+let loaderTimeout;
+
+
+loaderTimeout = setTimeout(() => {
+  document.body.classList.add("loading");
+  const loader = document.getElementById("loader");
+  if(loader){
+    loader.style.display = "flex";
+  }
+}, 300);
+
+window.addEventListener("load", function(){
+
+  clearTimeout(loaderTimeout); 
+
+  const loader = document.getElementById("loader");
+
+  if(document.body.classList.contains("loading")){
+    loader.classList.add("fade-out");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      document.body.classList.remove("loading");
+    }, 400);
+  }
+});
+
+</script>
+  
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>Blast Brothers</h3>
+      <p>Creating unforgettable surprise experiences filled with emotion and creativity.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="service.html">Modes</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Our Modes</h4>
+      <ul>
+        <li><a href="service.html">Anger Mode</a></li>
+        <li><a href="service.html">Smile Mode</a></li>
+        <li><a href="service.html">Crying Mode</a></li>
+        <li><a href="service.html">Shock Mode</a></li>
+        <li><a href="service.html">Panic Mode</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      
+      <h4>Contact Us</h4>
+      <p>📍 Madurai</p>
+      <a href="tel:+917418982412" class="calls-btn">
+        <i class="fab fa-whatsapp"></i>Call Us Now
+      </a><br>
+      <a href="https://www.instagram.com/blast_brothers/" target="_blank" class="insta_links">
+        <i class="fa-brands fa-instagram"></i>Check Now
+      </a>
+      
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Blast Brothers. All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("show");
+}
+</script>
+</body>
+</html>

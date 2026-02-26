@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blast Brothers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    
+</head>
+<body class="loading">
+<div id="loader">
+  <div class="loader-content">
+     <div class="spinner"></div>
+     <p>Please Wait.....</p>
+  </div>
+</div>
+<header>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <nav id="mobileMenu" class="nav-links">
+   <a href="index.html" class="active">Home</a>
+   <a href="service.html">Modes</a>
+   <a href="gallery.html">Gallery</a>
+   <a href="about.html">About</a>
+   <a href="contact.html">Contact</a>
+  </nav>
+
+
+<div class="logo">
+  <a href="about.html">Blast Brothers</a>
+</div>
+
+
+
+</header>
+
+    <section class="hero">
+
+  <div class="hero-content">
+    
+    <h1>We Create Unforgettable Surprise Moments</h1>
+
+    <p>
+      From romantic proposals to birthdays, anniversaries, and special
+      celebrations and events — we plan, design, and organize magical surprises
+      with creative ideas and complete setup.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="service.html" class="btn primary">Explore Services</a>
+      <a href="contact.html" class="btn secondary">Plan My Surprise</a>
+    </div>
+    <div class="hero-offer">
+       <button class="offer-btn" onclick="openOffer()">Exclusive Offers This Month🥳🎉</button> 
+    </div>
+    
+
+    <div class="trust">
+      ✔ Surprise Planning Experts &nbsp;&nbsp;<br>
+      ✔ Creative Unique Ideas &nbsp;&nbsp; <br>
+      ✔ Complete Event Setup
+    </div>
+
+  </div>
+  <a href="gallery.html" class="scroll">↓ View Gallery</a>
+</section>
+<footer class="footer">
+  <div class="footer-container">
+
+    <div>
+      <h3>Blast Brothers</h3>
+      <p>Creating unforgettable surprise experiences filled with emotion and creativity.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="service.html">Modes</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Our Modes</h4>
+      <ul>
+        <li><a href="service.html">Anger Mode</a></li>
+        <li><a href="service.html">Smile Mode</a></li>
+        <li><a href="service.html">Crying Mode</a></li>
+        <li><a href="service.html">Shock Mode</a></li>
+        <li><a href="service.html">Panic Mode</a></li>
+      </ul>
+    </div>
+
+    <div>
+      
+      <h4>Contact Us</h4>
+      <p>📍 Madurai</p>
+      <a href="tel:+917418982412" class="calls-btn">
+        <i class="fab fa-whatsapp"></i>Call Us Now
+      </a><br>
+      <a href="https://www.instagram.com/blast_brothers/" target="_blank" class="insta_links">
+        <i class="fa-brands fa-instagram"></i>Check Now
+      </a>
+      
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Blast Brothers. All Rights Reserved.</p>
+  </div>
+</footer>
+<div id="offerPopup" class="offer-popup">
+
+  <div class="offer-box">
+    <span onclick="closeOffer()" class="close">✖</span>
+
+    <h2 id="offerTitle"></h2>
+    <p id="offerText"></p>
+    <H3 style="color: #ffcc33; margin-top:10px;">UPTO 75% OFF Available</H3>
+    <p style="color: #ff6b6b; font-weight:600;">Limited Slots Only-Book Fast</p>
+    <a href="tel:+917418982412" class="book-btn">Contact Now</a>
+
+  </div>
+
+</div>
+<script>
+
+function openOffer(){
+
+  const month = new Date().getMonth()+1;
+
+  let title="";
+  let text="";
+
+  if(month===1){
+    title="🎊 January Special";
+    text="New Year + Pongal + Republic Day Surprise Offers!";
+  }
+  else if(month===2){
+    title="❤️ February Special";
+    text="Valentine Romantic Surprise Packages!";
+  }
+  else if(month===3){
+    title="🌸 March Special";
+    text="Women's Day + Ramzan Celebration Offers!";
+  }
+  else{
+    title="🎁 Special Offers";
+    text="Contact us for latest surprise packages!";
+  }
+
+  document.getElementById("offerTitle").innerText=title;
+  document.getElementById("offerText").innerText=text;
+
+  document.getElementById("offerPopup").style.display="flex";
+}
+
+
+function closeOffer(){
+  document.getElementById("offerPopup").style.display="none";
+}
+
+
+/* keep your mobile menu also */
+function toggleMenu(){
+ document.getElementById("mobileMenu").classList.toggle("show");
+}
+let loaderTimeout;
+
+
+loaderTimeout = setTimeout(() => {
+  document.body.classList.add("loading");
+  const loader = document.getElementById("loader");
+  if(loader){
+    loader.style.display = "flex";
+  }
+}, 300); 
+
+window.addEventListener("load", function(){
+
+  clearTimeout(loaderTimeout); 
+  const loader = document.getElementById("loader");
+
+  if(document.body.classList.contains("loading")){
+    loader.classList.add("fade-out");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      document.body.classList.remove("loading");
+    }, 400);
+  }
+});
+</script>
+
+
+</body>
+</html>

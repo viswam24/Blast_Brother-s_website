@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Blast Brothers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body class="loading">
+<div id="loader">
+  <div class="loader-content">
+     <div class="spinner"></div>
+     <p>Please Wait.....</p>
+  </div>
+</div>
+<header>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <nav id="mobileMenu" class="nav-links">
+   <a href="index.html">Home</a>
+   <a href="service.html">Modes</a>
+   <a href="gallery.html">Gallery</a>
+   <a href="about.html">About</a>
+   <a href="contact.html" class="active">Contact</a>
+  </nav>
+
+<div class="logo">
+<a href="about.html">Blast Brothers</a>
+</div>
+
+
+
+</header>
+<main>
+   <section class="contact-page">
+
+  <div class="contact-hero-content">
+    <h1>Let’s Create Something Amazing</h1>
+    <p>We’re just one call away from bringing your vision to life.</p>
+  </div>
+
+  <div class="contact-cards">
+
+    <div class="contact-card">
+      <i class="fas fa-phone"></i>
+      <h3>Call Us</h3>
+      <a href="tel:+917418982412" class="call-btn">Call Us Now</a>
+    </div>
+
+    <div class="contact-card">
+      <i class="fab fa-whatsapp"></i>
+      <h3>WhatsApp</h3>
+      <a href="https://wa.me/917418982412" target="_blank">Chat Now</a>
+    </div>
+
+    <div class="contact-card">
+      <i class="fab fa-instagram"></i>
+      <h3>Instagram</h3>
+      <a href="https://www.instagram.com/blast_brothers/">Check Now</a>
+    </div>
+
+  </div>
+
+</section>
+</main>
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>Blast Brothers</h3>
+      <p>Creating unforgettable surprise experiences filled with emotion and creativity.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="service.html">Modes</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Our Modes</h4>
+      <ul>
+        <li><a href="service.html">Anger Mode</a></li>
+        <li><a href="service.html">Smile Mode</a></li>
+        <li><a href="service.html">Crying Mode</a></li>
+        <li><a href="service.html">Shock Mode</a></li>
+        <li><a href="service.html">Panic Mode</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      
+      <h4>Contact Us</h4>
+      <p>📍 Madurai</p>
+      <a href="tel:+917418982412" class="calls-btn">
+        <i class="fab fa-whatsapp"></i>Call Us Now
+      </a><br>
+      <a href="https://www.instagram.com/blast_brothers/" target="_blank" class="insta_links">
+        <i class="fa-brands fa-instagram"></i>Check Now
+      </a>
+      
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Blast Brothers. All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("show");
+}
+let loaderTimeout;
+
+
+loaderTimeout = setTimeout(() => {
+  document.body.classList.add("loading");
+  const loader = document.getElementById("loader");
+  if(loader){
+    loader.style.display = "flex";
+  }
+}, 300); 
+
+window.addEventListener("load", function(){
+
+  clearTimeout(loaderTimeout); 
+
+  const loader = document.getElementById("loader");
+
+  if(document.body.classList.contains("loading")){
+    loader.classList.add("fade-out");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      document.body.classList.remove("loading");
+    }, 400);
+  }
+});
+</script>
+</body>
+</html>
