@@ -7,13 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 </head>
-<body class="loading">
-<div id="loader">
-  <div class="loader-content">
-     <div class="spinner"></div>
-     <p>Please Wait.....</p>
-  </div>
-</div>
+<body>
 <header>
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
@@ -113,32 +107,7 @@
 function toggleMenu(){
 document.getElementById("mobileMenu").classList.toggle("show");
 }
-let loaderTimeout;
 
-
-loaderTimeout = setTimeout(() => {
-  document.body.classList.add("loading");
-  const loader = document.getElementById("loader");
-  if(loader){
-    loader.style.display = "flex";
-  }
-}, 300); 
-
-window.addEventListener("load", function(){
-
-  clearTimeout(loaderTimeout); 
-
-  const loader = document.getElementById("loader");
-
-  if(document.body.classList.contains("loading")){
-    loader.classList.add("fade-out");
-
-    setTimeout(() => {
-      loader.style.display = "none";
-      document.body.classList.remove("loading");
-    }, 400);
-  }
-});
 </script>
 </body>
 </html>

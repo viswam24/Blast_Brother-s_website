@@ -9,13 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
     
 </head>
-<body class="loading">
-<div id="loader">
-  <div class="loader-content">
-     <div class="spinner"></div>
-     <p>Please Wait.....</p>
-  </div>
-</div>
+<body>
 <header>
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
@@ -35,6 +29,7 @@
 
 
 </header>
+<main>
 
     <section class="hero">
 
@@ -50,22 +45,79 @@
 
     <div class="hero-buttons">
       <a href="service.html" class="btn primary">Explore Services</a>
-      <a href="contact.html" class="btn secondary">Plan My Surprise</a>
+      <a href="https://wa.me/917418982412" class="btn secondary">Plan My Surprise</a>
     </div>
     <div class="hero-offer">
        <button class="offer-btn" onclick="openOffer()">Exclusive Offers This Month🥳🎉</button> 
     </div>
     
 
-    <div class="trust">
-      ✔ Surprise Planning Experts &nbsp;&nbsp;<br>
-      ✔ Creative Unique Ideas &nbsp;&nbsp; <br>
-      ✔ Complete Event Setup
-    </div>
+    
+  <div class="recommended-modes">
+    <h2>Highly Recommended Modes🔥</h2>
+    <p class="mode-sub">Our Most Loved Surprise Experiences</p>
 
+    <div class="mode-container">
+        <div class="mode-card">
+            <h3>Smile Mode😊</h3>
+            <p>Romantic & heart-touching surprise with decorations.</p>
+            <button onclick="location.href='service.html'">Explore</button>
+        </div>
+
+        <div class="mode-card">
+            <h3> Panic Mode😱</h3>
+            <p>Unexpected shock setup leading to unforgettable moment.</p>
+            <button onclick="location.href='service.html'">Explore</button>
+        </div>
+
+    </div>
+  </div>  
+<div class="testimonial-section">
+    <h2>Customer Reviews </h2>
+    <p class="testimonial-sub">Rated 5.0 ★ by Our Happy Clients</p>
+
+    <div class="slider">
+        <div class="slides">
+
+            <div class="slide">
+                <img src="images/client1.jpg" class="client-img">
+                <h3>sanjay</h3>
+                <div class="stars">★★★★★</div>
+                <p>Angry Mode was EPIC! 😡🔥We thought it was a normal day, but the blast setup was perfectly planned and executed! Really emotional moment at the end. Blast Brothers nailed it!”</p>
+            </div>
+
+            <div class="slide">
+                <img src="images/client2.jpg" class="client-img">
+                <h3>Monica</h3>
+                <div class="stars">★★★★★</div>
+                <p>Smile Mode made her day! 😊💖Beautiful decorations, great planning, everything was just perfect. She still talks about it! Worth every rupee.</p>
+            </div>
+
+            <div class="slide">
+                <img src="images/client3.jpg" class="client-img">
+                <h3>Arun</h3>
+                <div class="stars">★★★★★</div>
+                <p>Highly Recommended! 🙌⭐From planning to execution — smooth, on-time, and emotional. Love the way they handle every detail.</p>
+            </div>
+
+        </div>
+    </div>
   </div>
-  <a href="gallery.html" class="scroll">↓ View Gallery</a>
+  
+<!-- 🚀 Why Choose Us -->
+<div class="choose-section">
+    <h2>Why Choose Blast Brothers🚀?</h2><br>
+
+    <div class="choose-container">
+        <div class="choose-box">✔ Creative & Unique Surprise Ideas</div><br>
+        <div class="choose-box">✔ Budget Friendly Packages</div><br>
+        <div class="choose-box">✔ On-time Setup & Execution</div><br>
+        <div class="choose-box">✔ 100% Privacy & Planning Support</div><br>
+        <div class="choose-box">✔ Customizable Themes</div><br>
+    </div>
+</div>
 </section>
+</main>
 <footer class="footer">
   <div class="footer-container">
 
@@ -171,31 +223,19 @@ function closeOffer(){
 function toggleMenu(){
  document.getElementById("mobileMenu").classList.toggle("show");
 }
-let loaderTimeout;
+document.addEventListener("DOMContentLoaded", function () {
 
+  let index = 0;
+  const slides = document.querySelector(".slides");
+  const totalSlides = document.querySelectorAll(".slide").length;
 
-loaderTimeout = setTimeout(() => {
-  document.body.classList.add("loading");
-  const loader = document.getElementById("loader");
-  if(loader){
-    loader.style.display = "flex";
-  }
-}, 300); 
+  setInterval(() => {
+    index = (index + 1) % totalSlides;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }, 3000);
 
-window.addEventListener("load", function(){
-
-  clearTimeout(loaderTimeout); 
-  const loader = document.getElementById("loader");
-
-  if(document.body.classList.contains("loading")){
-    loader.classList.add("fade-out");
-
-    setTimeout(() => {
-      loader.style.display = "none";
-      document.body.classList.remove("loading");
-    }, 400);
-  }
 });
+
 </script>
 
 
